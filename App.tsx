@@ -99,7 +99,7 @@ app.get('/user', (req, res) => {
           </div>
           <div className="flex items-center gap-4">
              <a 
-               href="https://github.com/adityaprakash-work/VulnExplain" 
+               href="https://github.com/Aditya12705/VulnExplain" 
                target="_blank" 
                rel="noopener noreferrer"
                className="text-sm text-gray-400 hover:text-white transition"
