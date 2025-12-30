@@ -123,8 +123,13 @@ function parseGithubUrl(url) {
 // Helper: Get repository content from GitHub
 async function getRepoContent(owner, repo) {
   try {
+    const headers = {};
+    if (process.env.GITHUB_TOKEN) {
+      headers['Authorization'] = `token ${process.env.GITHUB_TOKEN}`;
+    }
+
     // Get default branch
-    const repoRes = await axios.get(`https://api.github.com/repos/${owner}/${repo}`);
+    const repoRes = await axios.get(`https://api.github.com/repos/${owner}/${repo}`, { headers });
     const defaultBranch = repoRes.data.default_branch;
 
     let content = `# GitHub Repository Security Audit: ${owner}/${repo}\n\n`;
@@ -132,7 +137,7 @@ async function getRepoContent(owner, repo) {
     content += `Repository URL: https://github.com/${owner}/${repo}\n\n`;
 
     // Get main code files
-    const treeRes = await axios.get(`https://api.github.com/repos/${owner}/${repo}/git/trees/${defaultBranch}?recursive=1`);
+    const treeRes = await axios.get(`https://api.github.com/repos/${owner}/${repo}/git/trees/${defaultBranch}?recursive=1`, { headers });
     const codeFiles = treeRes.data.tree
       .filter(file => /\.(js|ts|py|java|cpp|c|go|rs|rb|php)$/.test(file.path))
       .slice(0, 10); // Limit to first 10 code files
@@ -155,8 +160,22 @@ async function getRepoContent(owner, repo) {
 }
 
 // Routes
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'VulnExplain Backend - API Server',
+    version: '1.0.0',
+    healthCheck: 'GET /health',
+    endpoints: {
+      audit: 'POST /api/audit',
+      auditRepo: 'POST /api/audit-repo',
+      auditDependencies: 'POST /api/audit-dependencies'
+    },
+    documentation: 'https://github.com/Aditya12705/VulnExplain'
+  });
+});
+
 app.get('/health', (req, res) => {
-  res.json({ status: 'ok', service: 'VulnExplain Backend', aiProvider: 'Groq' });
+  res.json({ status: 'ok', service: 'VulnExplain Backend', aiProvider: 'Groq (llama-3.3-70b-versatile)' });
 });
 
 // POST /api/audit - Audit code snippet
