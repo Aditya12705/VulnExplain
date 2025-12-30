@@ -1,7 +1,3 @@
-<div align="center">
-<img width="1200" height="100" alt="VulnExplain" src="https://via.placeholder.com/1200x100?text=VulnExplain+-+Enterprise+Security+Audit+Platform" />
-</div>
-
 # 🛡️ VulnExplain - Enterprise Security Audit Platform
 
 VulnExplain is a production-ready B2B SaaS platform for automated security auditing, powered by **Groq's Llama 3.3 70B** AI. Audit code snippets, GitHub repositories, and dependencies for OWASP vulnerabilities, financial risk assessment, and SOC 2 compliance mapping.
@@ -17,7 +13,6 @@ VulnExplain is a production-ready B2B SaaS platform for automated security audit
 - **AI-Powered Remediation** - Get specific fix suggestions using Groq/Llama
 - **Dependency Analysis** - Check npm packages for CVEs
 - **Consistent Results** - Cached audits ensure reproducible findings
-- **Production-Ready Deployment** - Docker, Heroku, AWS, Railway support
 
 ## 🎯 What This Solves
 
@@ -54,7 +49,6 @@ npm run dev
 # 5. Open http://localhost:3000
 ```
 
-See [QUICKSTART.md](./QUICKSTART.md) for detailed setup instructions.
 
 ## 📊 Architecture
 
@@ -67,7 +61,6 @@ Groq API (Llama 3.3 70B)
     + GitHub API (for repo scanning)
 ```
 
-See [ARCHITECTURE.md](./ARCHITECTURE.md) for detailed system design.
 
 ## 🔍 Usage Examples
 
@@ -96,30 +89,6 @@ https://github.com/expressjs/express
 4. **Risk Management** - Quantify technical debt in ₹ INR
 5. **Vendor Assessment** - Evaluate third-party code
 6. **Training** - Teach developers about vulnerabilities
-
-## 🚢 Deployment Options
-
-### Docker Compose (Recommended for local)
-```bash
-docker-compose up -d
-```
-
-### Vercel + Heroku (Easiest for production)
-- Frontend: Deploy to Vercel
-- Backend: Deploy to Heroku
-- See [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md)
-
-### AWS EC2
-- Complete setup guide in [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md)
-
-### Railway.app (Simplest)
-- One-click deployment with environment variables
-
-## 📚 Documentation
-
-- **[QUICKSTART.md](./QUICKSTART.md)** - Get running in 5 minutes
-- **[DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md)** - Production deployment
-- **[ARCHITECTURE.md](./ARCHITECTURE.md)** - System design & technical details
 
 ## 🔐 Security Features
 
@@ -167,10 +136,6 @@ GET /health
 - GitHub API v3
 - Redis (caching for consistent results)
 
-### Infrastructure
-- Docker & Docker Compose
-- Nginx (optional for self-hosting)
-- PostgreSQL (for future analytics)
 
 ## 📈 Performance
 
@@ -208,14 +173,6 @@ Contributions welcome! Please:
 4. Push to branch (`git push origin feature/AmazingFeature`)
 5. Open Pull Request
 
-## 📧 Support
-
-- **Documentation:** Check our guides above
-- **Issues:** Open GitHub issue
-- **Email:** support@vulnexplain.com
-- **Groq API Docs:** https://console.groq.com/docs
-- **Groq Status:** https://status.groq.com
-
 ## 🎯 Roadmap
 
 - [ ] User authentication (OAuth2)
@@ -238,11 +195,3 @@ Contributions welcome! Please:
 - **<30s** average audit time
 
 ---
-
-**Made with ❤️ for security teams**
-
-<div align="center">
-
-[📖 Documentation](./DEPLOYMENT_GUIDE.md) • [🚀 Quick Start](./QUICKSTART.md) • [🏗️ Architecture](./ARCHITECTURE.md) • [⚡ Live Demo](#)
-
-</div>
